@@ -1,0 +1,44 @@
+{
+  "name": "apidoc",
+  "version": "0.0.1",
+  "description": "根据JSDoc注释自动更新接口文档到gwapi",
+  "bin": {
+    "apidoc": "./lib/cli.js"
+  },
+  "main": "./index.js",
+  "dependencies": {
+    "babel-runtime": "6.26.0",
+    "generate-schema": "^2.6.0",
+    "jsdoc-api": "^4.0.3",
+    "minimist": "^1.2.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2"
+  },
+  "scripts": {
+    "babel": "gulp babel",
+    "test": "gulp yapi",
+    "bin-test": "node ./lib/cli.js test/**/*.js"
+  },
+  "apiConfig": {
+    "project_id": 1,
+    "token": "xxxxxxx",
+    "host": "http://127.0.0.1:3000"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1"
+  },
+  "keywords": [
+    "jsdoc",
+    "apidoc"
+  ],
+  "engines": {
+    "node": ">=4.8.0"
+  },
+  "author": "pxeric",
+  "license": "ISC"
+}
