@@ -3,7 +3,7 @@
 ### Sample
 
 #### 安装
-直接将apidoc放到node_modules目录下
+npm i yapidoc
 
 #### 获取 项目ID 和 更新token
 打开项目配置页: http://yapi.host/project/1/setting
@@ -22,9 +22,7 @@
 }
 ```
 
-scripts.apidoc 配置格式为：apidoc path1 [path2] [pathn...]
-
-##### 将apidoc.cmd文件放在需要使用apidoc项目的node_modules/.bin文件夹下
+scripts.apidoc 配置格式为：apidoc path1 [path2][pathn...]
 
 
 #### 使用
