@@ -1,7 +1,7 @@
 @IF EXIST "%~dp0\node.exe" (
-  "%~dp0\node.exe"  "%~dp0\..\apidoc\lib\cli.js" %*
+  "%~dp0\node.exe"  "%~dp0\..\yapidoc\lib\cli.js" %*
 ) ELSE (
   @SETLOCAL
   @SET PATHEXT=%PATHEXT:;.JS;=;%
-  node  "%~dp0\..\apidoc\lib\cli.js" %*
+  node  "%~dp0\..\yapidoc\lib\cli.js" %*
 )
