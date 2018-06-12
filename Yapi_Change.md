@@ -156,11 +156,39 @@ if (inst.$auth === true || (inst.$project && path.indexOf('/interface') === 0))
 
 
 
-三、node server/app.js //启动服务器后，请访问 127.0.0.1:{config.json配置的端口}，初次运行会有个编译的过程，请耐心等候
+##### 6、client/containers/Project/Setting/ProjectMessage/ProjectMessage.js增加如下代码
+
+可添加在const selectDisabled = projectMsg.role === 'owner' || projectMsg.role === 'admin';的上方
+
+```html
+    let token = '';
+    if (projectMsg.update_token) {
+    	token = (<FormItem
+    	{...formItemLayout}
+    	label="update_token"
+    	>
+          <span>{projectMsg.update_token}</span>
+    	</FormItem>);
+    }
+```
+
+在项目名称标签的上方增加代码
+
+```html
+{token}
+```
 
 
 
-四、浏览器打开 127.0.0.1:{config.json配置的端口}并进入管理后台，默认登录帐号：admin@admin.com 密码：ymfe.org，然后添加项目，添加完后执行http://127.0.0.1:{config.json配置的端口}/api/project/get?id=项目ID，查看update_token是多少，然后在相应项目中添加配置，如：
+三、npm install ykit -g 安装ykit，然后使用ykit p -m 编译项目
+
+
+
+四、node server/app.js //启动服务器后，请访问 127.0.0.1:{config.json配置的端口}，初次运行会有个编译的过程，请耐心等候
+
+
+
+五、浏览器打开 127.0.0.1:{config.json配置的端口}并进入管理后台，默认登录帐号：admin@admin.com 密码：ymfe.org，然后添加项目，可进入项目的设置界面查看到update_token是多少，然后在相应项目中添加配置，如：
 
 ```json
 "apiConfig": {
