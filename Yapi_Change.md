@@ -40,11 +40,13 @@ getBaseInfo(id, needToken) {
 }
 ```
 
+#####2、server/models/interface.js
+修改listByCatid方法，注释 .select(select)
 
 
-#####2、server/controllers/base.js
+#####3、server/controllers/base.js
 
-2.1、async checkLogin(ctx)方法替换如下代码：
+3.1、async checkLogin(ctx)方法替换如下代码：
 
 ```javascript
 async checkLogin(ctx) {
@@ -89,7 +91,7 @@ async checkLogin(ctx) {
 
 
 
-2.2、async checkAuth(id, type, action)方法的开头处增加如下代码
+3.2、async checkAuth(id, type, action)方法的开头处增加如下代码
 
 ```javascript
 //token 所属项目和验证项目一致
@@ -100,11 +102,11 @@ if(this.$project && this.$project._id === id){
 
 
 
-##### 3、server/controllers/project.js
+##### 4、server/controllers/project.js
 
-3.1、创建项目时随机生成token，在color: params.color下方增加 update_token: yapi.commons.randStr(),
+4.1、创建项目时随机生成token，在color: params.color下方增加 update_token: yapi.commons.randStr(),
 
-3.2、async get(ctx)方法替换为以下代码
+4.2、async get(ctx)方法替换为以下代码
 
 ```javascript
 async get(ctx) {
@@ -138,7 +140,7 @@ async get(ctx) {
 
 
 
-##### 4、server/utils/commons.js
+##### 5、server/utils/commons.js
 
 ```javascript
 if (inst.$auth === true) 
@@ -148,15 +150,15 @@ if (inst.$auth === true || (inst.$project && path.indexOf('/interface') === 0))
 
 
 
-##### 5、config.json增加tokenEditor节点
+##### 6、config.json增加tokenEditor节点
 
-5.1、config.json修改相关配置，并且增加tokenEditor节点，如："tokenEditor":  "sysuser"
+6.1、config.json修改相关配置，并且增加tokenEditor节点，如："tokenEditor":  "sysuser"
 
-5.2、mongodb中的user表增加tokenuser用户，其他属性可复制其他用户的
+6.2、mongodb中的user表增加tokenuser用户，其他属性可复制其他用户的
 
 
 
-##### 6、client/containers/Project/Setting/ProjectMessage/ProjectMessage.js增加如下代码
+##### 7、client/containers/Project/Setting/ProjectMessage/ProjectMessage.js增加如下代码
 
 可添加在const selectDisabled = projectMsg.role === 'owner' || projectMsg.role === 'admin';的上方
 
