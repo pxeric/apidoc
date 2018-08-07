@@ -1,6 +1,6 @@
 {
   "name": "yapidoc",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "根据JSDoc注释自动更新接口文档到gwapi",
   "bin": {
     "apidoc": "./lib/cli.js"
